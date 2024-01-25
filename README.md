@@ -1,5 +1,5 @@
 # blind-sig-js
-Interact with cashu mints in the browser
+Interact with cashu mints in vanilla javascript
 
 # How to try it
 Just click here: https://supertestnet.github.io/blind-sig-js/
