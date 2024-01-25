@@ -424,7 +424,7 @@
                 var eighth_message = new blindSigJS.bsjMsg();
                 var eighth_B_ = await eighth_message.createBlindedMessageFromString( eighth_secret_for_message );
                 var eighth_output_B_hex = blindSigJS.ecPointToHex( eighth_B_ );
-                var msghash = SHA256( eighth_output_B_hex );
+                var msghash = SHA256( hexToBytes( eighth_output_B_hex ) );
                 var eighth_output_sig = await nobleSecp256k1.schnorr.sign( msghash, seventh_privkey_for_message );
                 var eighth_output = {
                     "amount": amount_i_want,
@@ -552,7 +552,7 @@
                 var eleventh_message = new blindSigJS.bsjMsg();
                 var eleventh_B_ = await eleventh_message.createBlindedMessageFromString( eleventh_secret_for_message );
                 var eleventh_output_B_hex = blindSigJS.ecPointToHex( eleventh_B_ );
-                var msghash = SHA256( eleventh_output_B_hex );
+                var msghash = SHA256( hexToBytes( eleventh_output_B_hex ) );
                 var eleventh_output_sig = await nobleSecp256k1.schnorr.sign( msghash, tenth_privkey_for_message );
                 var eleventh_output_sig_2 = await nobleSecp256k1.schnorr.sign( msghash, tenth_privkey_2_for_message );
                 var eleventh_output = {
