@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	    <meta charset="utf-8" />
+	    <title>Blind Sig JS</title>
+      <script src="./blindSigJS.js"></script>
+  </head>
+  <body>
+      <p>Open your browser console to see some cool stuff</p>
+      <script>
+        var example = async () => {
+          var message = new blindSigJS.bsjMsg();
+          var mint = new blindSigJS.bsjMint();
+          var secret_for_message = blindSigJS.getRand( 32 );
+          var B_ = await message.createBlindedMessage( secret_for_message );
+          var C_ = mint.createBlindSignature( B_ );
+          var {C, secret} = message.unblindSignature( C_, mint.publicKey );
+          var aY = await mint.calculateCVerify( secret );
+          console.log( "secret for message:", secret_for_message );
+          console.log( "blinding factor:", blindSigJS.ecPointToHex( B_ ) );
+          console.log( "blinded sig:", blindSigJS.ecPointToHex( C_ ) );
+          console.log( "unblinded sig:", blindSigJS.ecPointToHex( C ) );
+          if ( blindSigJS.ecPointToHex( aY ) === blindSigJS.ecPointToHex( C ) ) console.log( `the signature is valid, therefore the message was validly signed by the mint` );
+          else console.log( `something went wrong` );
+        }
+        example();
+      </script>
+  </body>
+</html>
