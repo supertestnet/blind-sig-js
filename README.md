@@ -12,6 +12,6 @@ This repo contains working code (in index.html) for interacting with a cashu ser
 - A pair of multisig transactions that lock some ecash to a multisig and then use multiple signatures to redeem it
 
 # Acknowledgements
-All I did was take [this code](https://github.com/gandlafbtc/cashu-crypto-js) written by Gandlaf BTC and ran it through webpack to make it work in the browser, then nag Calle til he helped me debug why my test transactions weren't working
+All I did was, I took [this code](https://github.com/gandlafbtc/cashu-crypto-js) written by Gandlaf BTC and ran it through webpack to make it work in the browser. Then I nagged Calle til he helped me debug why my test transactions weren't working
 
 So all thanks should be directed to them
